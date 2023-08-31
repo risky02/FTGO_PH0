@@ -1,2 +1,0 @@
-# BelajarGit
-Belajar GIT
