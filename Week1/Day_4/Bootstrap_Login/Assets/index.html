@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Belajar Bootstrap</title>
+
+    <!-- Menghubungkan file Bootstrap offline -->
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"/> -->
+
+    <!-- Menyisipkan JQuery dan JS Bootstrap -->
+    <!-- <script src="/assets/js/bootstrap.js"></script> -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Internal CSS untuk Grid -->
+    <style type="text/css">
+      .column {
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px 0;
+        border: 1px solid rgb(233, 232, 134);
+        background-color: rgb(245, 99, 121);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Membuat komponen jumbotron sebagai header -->
+    <header>
+      <!-- <div class="container">
+                <div class="jumbotron">
+                    <h1>Selamat Datang di Kelas FTGO Hari ke-4</h1>
+                    <p>Kita akan belajar Bootstrap pada sesi ini</p>
+                    <p>
+                        <button class="btn btn-lg btn-primary">Segera</button>
+                        <button class="btn btn-md btn-primary">Segera</button>
+                        <button class="btn btn-sm btn-primary">Segera</button>
+                    </p>
+                    <p>
+                        <button class="btn btn-lg btn-danger">Segera</button>
+                        <button class="btn btn-md btn-danger">Segera</button>
+                        <button class="btn btn-sm btn-danger">Segera</button>
+                    </p>
+                    <p>
+                        <button class="btn btn-lg btn-success">Segera</button>
+                        <button class="btn btn-md btn-success">Segera</button>
+                        <button class="btn btn-sm btn-success">Segera</button>
+                    </p>
+                    <p>
+                        <button class="btn btn-lg btn-warning">Segera</button>
+                        <button class="btn btn-md btn-warning">Segera</button>
+                        <button class="btn btn-sm btn-warning">Segera</button>
+                    </p>
+                    <p>
+                        <button class="btn btn-lg btn-info">Segera</button>
+                        <button class="btn btn-md btn-info">Segera</button>
+                        <button class="btn btn-sm btn-info">Segera</button>
+                    </p>
+                    <p>
+                        <button class="btn btn-lg btn-default">Segera</button>
+                        <button class="btn btn-md btn-default">Segera</button>
+                        <button class="btn btn-sm btn-default">Segera</button>
+                    </p>
+                </div>
+            </div> -->
+
+      <!-- Membuat table -->
+      <div class="container py-4">
+        <div class="table-responsive rounded">
+          <table class="table table-striped table-bordered table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th>No</th>
+                <th>Makanan</th>
+                <th>Harga</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Rendang</td>
+                <td>50000</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Burger</td>
+                <td>50000</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Ayam</td>
+                <td>50000</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Steak</td>
+                <td>50000</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Hot Dog</td>
+                <td>50000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="container py-4">
+        <h1>Bootstrap Pagination</h1>
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">5</a></li>
+        </ul>
+      </div>
+
+      <!-- Breadcrumb -->
+      <div class="container py-4">
+        <h1>Breadcrumb</h1>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="#">About</a></li>
+          <li class="breadcrumb-item"><a href="#">Contact</a></li>
+          <li class="breadcrumb-item"><a href="#">Blog</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><a href="#">Services</a></li>
+        </ol>
+      </div>
+
+      <!-- Panel -->
+      <div class="container py-4">
+        <h1>Panel</h1>
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem">
+          <div class="card-header">Header</div>
+          <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container py-4">
+        <h1>Grid Bootstrap</h1>
+        <div class="row">
+          <div class="column col-md-12">.col-md-12</div>
+        </div>
+        <div class="row">
+          <div class="column col-md-6">.col-md-6</div>
+          <div class="column col-md-6">.col-md-6</div>
+        </div>
+        <div class="row">
+          <div class="column col-md-4">.col-md-4</div>
+          <div class="column col-md-4">.col-md-4</div>
+          <div class="column col-md-4">.col-md-4</div>
+        </div>
+        <div class="row">
+          <div class="column col-md-3">.col-md-3</div>
+          <div class="column col-md-3">.col-md-3</div>
+          <div class="column col-md-3">.col-md-3</div>
+          <div class="column col-md-3">.col-md-3</div>
+        </div>
+        <div class="row">
+          <div class="column col-md-2">.col-md-2</div>
+          <div class="column col-md-2">.col-md-2</div>
+          <div class="column col-md-2">.col-md-2</div>
+          <div class="column col-md-2">.col-md-2</div>
+          <div class="column col-md-2">.col-md-2</div>
+          <div class="column col-md-2">.col-md-2</div>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
