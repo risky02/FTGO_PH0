@@ -75,13 +75,13 @@ VALUES
 ('Samir Nasri', '3', '20230917','20230918');
 
 -------------------- Select All Data ----------------------------------
-SELECT _ destinations;
-SELECT _ hotels;
-SELECT \* bookings;
+SELECT * FROM destinations;
+SELECT * FROM hotels;
+SELECT * FROM bookings;
 
 -------------------- Select 1 atau 2 Data ----------------------------------
-SELECT _ FROM hotels WHERE ID_Hotels = 1;
-SELECT _ FROM hotels WHERE ID_Country = 1;
+SELECT * FROM hotels WHERE ID_Hotels = 1;
+SELECT * FROM hotels WHERE ID_Country = 1;
 
 -------------------- Select tampilkan tidak semua kolom dalam table ----------------------------------
 SELECT ID_Destinations, Des_Name, Description
