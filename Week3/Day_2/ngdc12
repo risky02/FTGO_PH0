@@ -1,0 +1,120 @@
+---------------- Create Database -------------------
+CREATE DATABASE tourism;
+
+---------------- Switch use Database -----------------
+USE DATABASE tourism;
+
+----------------- Create Table ----------------------
+
+CREATE TABLE IF NOT EXISTS country_all (
+ID_Country INT AUTO_INCREMENT NOT NULL,
+Country VARCHAR(50) NOT NULL,
+PRIMARY KEY (`ID_Country`)
+);
+
+CREATE TABLE IF NOT EXISTS destinations (
+ID_Destinations INT AUTO_INCREMENT NOT NULL,
+Des_Name VARCHAR(100) NOT NULL,
+ID_Country INT,
+Description VARCHAR (255) NOT NULL,
+Ratings DECIMAL (3,2) NOT NULL,
+PRIMARY KEY (`ID_Destinations`),
+FOREIGN KEY (`ID_Country`) REFERENCES `country_all`(`ID_Country`)
+);
+
+CREATE TABLE IF NOT EXISTS hotels (
+ID_Hotels INT AUTO_INCREMENT NOT NULL,
+Hotels_Name VARCHAR(100) NOT NULL,
+ID_Country INT,
+Hotels_Rating DECIMAL (3,2) NOT NULL,
+Address VARCHAR(255) NOT NULL,
+PRIMARY KEY (`ID_Hotels`),
+FOREIGN KEY (`ID_Country`) REFERENCES `country_all`(`ID_Country`)
+);
+
+CREATE TABLE IF NOT EXISTS bookings (
+Bookings_ID INT AUTO_INCREMENT NOT NULL,
+Guest_Name VARCHAR(50),
+ID_Hotels INT,
+Check_In_Date DATE NOT NULL,
+Check_Out_Date DATE NOT NULL,
+PRIMARY KEY (`Bookings_ID`),
+FOREIGN KEY (`ID_Hotels`) REFERENCES `hotels`(`ID_Hotels`)
+);
+
+-------------------- Insert Data ----------------------------------
+
+INSERT INTO `country_all` (`Country`)
+VALUES
+('Amerika Serikat'),
+('Brazil'),
+('Indonesia');
+
+INSERT INTO `destinations` (`Des_Name`, `ID_Country`, `Description`, `Ratings`)
+VALUES
+('The Art Institute of Chicago', 1,'Museum Kesenian Chicago.','4.9'),
+('National Park Yosemite', 1,'Taman nasional di Timur California','4.7'),
+('Copacabana Beach', 2,'Pantai di Rio de Janeiro','4.8'),
+('Sugarloaf Mountain', 2,'Puncak di Rio de Janeiro','5.0'),
+('Danau Toba', 3,'Danau alami di Sumatera Utara.','4.5'),
+('Pegunungan Jayawijaya', 3,'Pegunungan Tertinggi di Indonesia.','4.6');
+
+INSERT INTO `hotels` (`ID_Country`, `Hotels_Name`, `Hotels_Rating`, `Address`)
+VALUES
+(3,'Hotel Tongging Point','4.6','Jl. Raya Merek'),
+(3,'Grand Baliem Hotel','4.8','Jl. Sumbawa No.1, Wamena Kota'),
+(1,'The Peninsula Chicago','4.7',' St, Chicago'),
+(1,'Post Ranch Inn','4.9','Big Sur, CA'),
+(2,'Copacabana Palace, A Belmond Hotel','4.8','Av. Atlântica, 1702'),
+(2,'Windsor Excelsior Copacabana','5.0','Av. Atlântica, 1800');
+
+INSERT INTO `bookings` (`Guest_Name`, `ID_Hotels`, `Check_In_Date`, `Check_Out_Date`)
+VALUES
+('Mandzukic', '4', '202309111','20230914'),
+('Didier Drogba', '1', '20230915','20230916'),
+('Samir Nasri', '3', '20230917','20230918');
+
+-------------------- Select All Data ----------------------------------
+SELECT _ destinations;
+SELECT _ hotels;
+SELECT \* bookings;
+
+-------------------- Select 1 atau 2 Data ----------------------------------
+SELECT _ FROM hotels WHERE ID_Hotels = 1;
+SELECT _ FROM hotels WHERE ID_Country = 1;
+
+-------------------- Select tampilkan tidak semua kolom dalam table ----------------------------------
+SELECT ID_Destinations, Des_Name, Description
+FROM destinations;
+
+-------------------- Select Inner Join ----------------------------------
+
+SELECT hotels.ID_Hotels, hotels.Hotels_Name, country_all.Country, hotels.Hotels_Rating, hotels.Address
+FROM hotels
+INNER JOIN country_all ON hotels.ID_Country = country_all.ID_Country;
+
+SELECT destinations.ID_Destinations, destinations.Des_Name, country_all.Country, destinations.Description, destinations.Ratings
+FROM destinations
+INNER JOIN country_all ON destinations.ID_Country = country_all.ID_Country;
+
+-------------------- Average Data (Ratings) ----------------------------
+SELECT
+Country,
+AVG(Ratings) AS Ratings_Destination
+FROM
+destinations
+INNER JOIN
+country_all
+ON
+destinations.ID_Country = country_all.ID_Country
+GROUP BY
+Country;
+
+-------------------- Update Data ---------------------------------
+UPDATE destinations
+SET Ratings = 3
+WHERE ID_Destinations = 5;
+
+-------------------- Delete Data ---------------------------------
+DELETE from hotels
+WHERE ID_Hotels = 6;
